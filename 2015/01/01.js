@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
 // https://adventofcode.com/2015/day/1
+// node ./2015/01/01.js
+
 import { readFile } from 'node:fs/promises';
 import chalk from 'chalk';
 
@@ -15,7 +17,7 @@ async function getInputFromFile(filename) {
 	return(data);
 }
 
-function calculateFloor(inputString) {
+function calculateOverallFloor(inputString) {
 	const open = new RegExp("[(]", "g");
 	const close = new RegExp("[)]", "g");
 	const countOpen = (inputString.match(open) || []).length;
@@ -23,5 +25,21 @@ function calculateFloor(inputString) {
 	return countOpen - countClose;
 }
 
+function calculateEnterBasement(inputString) {
+	let floor = 0;
+	for (var i = 0; i < inputString.length; i++) {
+  		if(inputString[i] == '('){
+  			floor++;
+  		}else{
+  			if(floor == 0){
+  				return i + 1;
+  			}
+  			floor--;
+  		}
+	}
+	return -1;
+}
+
 const instruct = await getInputFromFile('input1')
-console.log(chalk.cyan(calculateFloor(instruct)));
+console.log(chalk.magenta("Part1: "), chalk.cyan(calculateOverallFloor(instruct)));
+console.log(chalk.magenta("Part2: "), chalk.cyan(calculateEnterBasement(instruct)));
