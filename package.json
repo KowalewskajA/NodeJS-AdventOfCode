@@ -1,0 +1,23 @@
+{
+  "name": "nodejs-adventofcode",
+  "version": "1.0.0",
+  "description": "NodeJS programs to solve the AoC challenges",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KowalewskajA/NodeJS-AdventOfCode.git"
+  },
+  "author": "Alexander \"KowalewskajA\" Lahn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KowalewskajA/NodeJS-AdventOfCode/issues"
+  },
+  "homepage": "https://github.com/KowalewskajA/NodeJS-AdventOfCode#readme",
+  "dependencies": {
+    "chalk": "^5.2.0"
+  }
+}
