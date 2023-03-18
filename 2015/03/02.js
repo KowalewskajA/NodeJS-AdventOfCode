@@ -56,4 +56,4 @@ for (const move of instructs) {
 	data.counter = data.counter + 1;
 }
 
-console.log(chalk.magenta("Part1: "), chalk.cyan(data.houses.size));
+console.log(chalk.magenta("Part2: "), chalk.cyan(data.houses.size));
