@@ -58,12 +58,32 @@ function checkGames (dict) {
   return sum
 }
 
+function getPower () {
+  let sumOfPower = 0
+  for (const number in Games) {
+    const result = { green: 0, red: 0, blue: 0 }
+    for (const draw in Games[number]) {
+      for (const color in result) {
+        if (parseInt(Games[number][draw][color]) > parseInt(result[color])) {
+          result[color] = Games[number][draw][color]
+        }
+      }
+    }
+    let gamePower = 1
+    for (const color in result) {
+      gamePower *= result[color]
+    }
+    sumOfPower += gamePower
+  }
+  return sumOfPower
+}
+
 async function main () {
   const lines = await getInputFromFile('input1')
   populateGames(lines)
   // console.log(chalk.magenta('Part1: '), chalk.cyan(JSON.stringify(Games, undefined, 2)))
   console.log(chalk.magenta('Part1: '), chalk.cyan(checkGames({ green: 13, red: 12, blue: 14 })))
-  // console.log(chalk.magenta('Part2: '), chalk.cyan(sumA))
+  console.log(chalk.magenta('Part2: '), chalk.cyan(getPower()))
 }
 
 main()
